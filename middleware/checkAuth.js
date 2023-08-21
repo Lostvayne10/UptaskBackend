@@ -18,13 +18,8 @@ const checkAuth = async (req, res, next) =>{
         }
     }
 
-    if(!token){
-        const error = new Error("El token no es valido");
-        return res.status(403).json({msg: error.message});
-    }
-
-    next();
-
+    const error = new Error("El token no es valido");
+    return res.status(403).json({msg: error.message});
 }
 
 export default checkAuth;
